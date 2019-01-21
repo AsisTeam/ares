@@ -6,7 +6,7 @@ use AsisTeam\ARES\Client\Finder;
 use AsisTeam\ARES\Client\Requester;
 use Nette\DI\CompilerExtension;
 
-final class AresExtension extends CompilerExtension
+class AresExtension extends CompilerExtension
 {
 
 	/** @var int[] */
