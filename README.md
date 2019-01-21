@@ -20,6 +20,8 @@ This PHP API wrapper allows you to get basic details about economic subjects.
 - find by ICO (companyID)
 - find by name (companyName)
 
+## Usage
+
 - [Finder - detailed usage documentation](https://github.com/AsisTeam/ares/blob/master/.docs/README.md)
 
 ## Install
