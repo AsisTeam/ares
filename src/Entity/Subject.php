@@ -16,15 +16,19 @@ final class Subject
 	/** @var string */
 	private $address;
 
+	/** @var int */
+	private $legalForm;
+
 	/** @var string|null */
 	private $vatId;
 
-	public function __construct(string $name, string $companyId, string $address, ?string $vatId = null)
+	public function __construct(string $name, string $companyId, string $address, int $legalForm, ?string $vatId = null)
 	{
-		$this->name = $name;
+		$this->name      = $name;
 		$this->companyId = $companyId;
-		$this->vatId = $vatId;
-		$this->address = $address;
+		$this->address   = $address;
+		$this->legalForm = $legalForm;
+		$this->vatId     = $vatId;
 	}
 
 	public function getName(): string
@@ -42,9 +46,29 @@ final class Subject
 		return $this->address;
 	}
 
+	public function getLegalForm(): int
+	{
+		return $this->legalForm;
+	}
+
 	public function getVatId(): ?string
 	{
 		return $this->vatId;
+	}
+
+	public function getLegalFormName(): string
+	{
+		return LegalForm::getLegalFormName($this->legalForm);
+	}
+
+	public function isPhysicalPerson(): bool
+	{
+		return LegalForm::isPhysicalPerson($this->legalForm);
+	}
+
+	public function isLegalPerson(): bool
+	{
+		return LegalForm::isLegalPerson($this->legalForm);
 	}
 
 	public static function assertCompanyId(string $companyId): void

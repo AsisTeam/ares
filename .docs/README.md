@@ -18,7 +18,14 @@ $finder = new Finder();
 #### Subject entity
 
 When some economic subject matches, this api wrapper returns the `Subject` instance.
-Methods `getCompanyID`, `getCompanyName`, `getAddress` and `getVatId` may called.
+Methods:
+- `getCompanyID` (returns ico [string])
+- `getCompanyName` (returns name [string])
+- `getAddress` (returns address [string])
+- `getVatId` (returns vat ID [string])
+- `getLegalFormName` (returns name of the legal form [string])
+- `isPhysicalPerson` (returns whether subject is physical person/individual [bool])
+- `isLegalPerson` (returns whether subject is legal person/company etc. [bool])
 
 #### Exceptions
 
@@ -35,6 +42,10 @@ Assert::equal($ic, $subject->getCompanyId());
 Assert::equal('28319061', $subject->getVatId());
 Assert::equal('AsisTeam s.r.o.', $subject->getName());
 Assert::equal('Praha 1, Staré Město, Kaprova 42/14', $subject->getAddress());
+Assert::equal(112, $subject->getLegalForm());
+Assert::equal('Společnost s ručením omezeným', $subject->getLegalFormName());
+Assert::true($subject->isLegalPerson());
+Assert::false($subject->isPhysicalPerson());
 
 // ----------------------------------
 

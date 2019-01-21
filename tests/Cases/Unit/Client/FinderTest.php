@@ -22,6 +22,10 @@ class FinderTest extends TestCase
 		Assert::equal('28319061', $subject->getVatId());
 		Assert::equal('AsisTeam s.r.o.', $subject->getName());
 		Assert::equal('Praha 1, Staré Město, Kaprova 42/14', $subject->getAddress());
+		Assert::equal(112, $subject->getLegalForm());
+		Assert::equal('Společnost s ručením omezeným', $subject->getLegalFormName());
+		Assert::true($subject->isLegalPerson());
+		Assert::false($subject->isPhysicalPerson());
 	}
 
 	public function testFindByName(): void
@@ -35,6 +39,8 @@ class FinderTest extends TestCase
 		Assert::equal('04925190', $subjects[0]->getVatId());
 		Assert::equal('A.S.I.S. Technologies s.r.o.', $subjects[0]->getName());
 		Assert::equal('Zádveřice-Raková 395', $subjects[0]->getAddress());
+		Assert::equal(112, $subjects[0]->getLegalForm());
+		Assert::equal('Společnost s ručením omezeným', $subjects[0]->getLegalFormName());
 
 		// ...
 
@@ -42,6 +48,8 @@ class FinderTest extends TestCase
 		Assert::null($subjects[4]->getVatId());
 		Assert::equal('Mezinárodní asociace bezpečnostního managementu - ASIS CZ, z.s.', $subjects[4]->getName());
 		Assert::equal('Praha 2, Nové Město, Lazarská 11/6', $subjects[4]->getAddress());
+		Assert::equal(706, $subjects[4]->getLegalForm());
+		Assert::equal('Spolek', $subjects[4]->getLegalFormName());
 	}
 
 	public function testFindNoMatch(): void

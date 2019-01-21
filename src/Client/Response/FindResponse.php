@@ -54,7 +54,13 @@ final class FindResponse
 				$vatIdNumber = substr((string) $subj->p_dph, 4);
 			}
 
-			$subjects[] = new Subject((string) $subj->ojm, (string) $subj->ico, (string) $subj->jmn, $vatIdNumber);
+			$subjects[] = new Subject(
+				(string) $subj->ojm,
+				(string) $subj->ico,
+				(string) $subj->jmn,
+				(int) $subj->pf,
+				$vatIdNumber
+			);
 		}
 
 		return $subjects;
