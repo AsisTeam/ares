@@ -25,7 +25,7 @@ class AresExtension extends CompilerExtension
 		$builder->addDefinition($this->prefix('requester'))
 			->setFactory(Requester::class, [$config['timeout']]);
 
-		$builder->addDefinition($this->prefix('ares.finder'))
+		$builder->addDefinition($this->prefix('finder'))
 			->setFactory(Finder::class);
 	}
 
