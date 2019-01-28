@@ -43,6 +43,12 @@ class FinderTest extends TestCase
 		Assert::count(5, $subjects);
 	}
 
+	public function testFindByNamePerson(): void
+	{
+		$subjects = $this->finder->findByName('Tomáš Holan');
+		Assert::count(12, $subjects);
+	}
+
 }
 
 (new FinderTest())->run();

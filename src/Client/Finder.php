@@ -6,6 +6,7 @@ use AsisTeam\ARES\Client\Response\FindResponse;
 use AsisTeam\ARES\Entity\Subject;
 use AsisTeam\ARES\Exception\InvalidArgumentException;
 use AsisTeam\ARES\Exception\RequestException;
+use Nette\Utils\Strings;
 
 final class Finder
 {
@@ -58,7 +59,7 @@ final class Finder
 			throw new RequestException($e->getMessage(), $e->getCode(), $e);
 		}
 
-		return trim(strtolower($name));
+		return trim(strtolower(Strings::toAscii($name)));
 	}
 
 }

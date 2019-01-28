@@ -16,7 +16,8 @@
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "php": ">= 7.1",
-    "nette/di": "^2.4"
+    "nette/di": "^2.4",
+    "nette/utils": "^2.5"
   },
   "require-dev": {
     "ninjify/qa": "^0.8.0",
