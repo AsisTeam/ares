@@ -84,7 +84,7 @@ final class Subject
 
 	public static function assertName(string $name): void
 	{
-		if (strlen($name) < 2) {
+		if (strlen($name) < 3) {
 			throw new InvalidArgumentException(sprintf(
 				'Company name must be at least 3 characters long. "%s" given',
 				$name
